@@ -24,9 +24,6 @@ cliente.connect(function(err, client) {
 
 servidor.use(bodyParser.json());
 
-servidor.listen(port, function() {
-  console.log(`escuchando conexiones en ${port}`);
-});
 
 servidor.get("/", function(consulta, respuesta) {
   respuesta.redirect("./publico");
@@ -74,4 +71,8 @@ servidor.patch("/edit", async (consulta, respuesta) => {
     .collection("notas")
     .updateOne({ titulo: data.titulo }, { $set: { nota } });
   respuesta.json({ res: "editado con exito" });
+});
+
+servidor.listen(port, ()=> {
+  console.log(`escuchando conexiones en ${port}`);
 });

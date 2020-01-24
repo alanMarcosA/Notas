@@ -8,7 +8,7 @@ async function guardar() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ titulo: titulo, nota: nota })
-  });
+  });   
   agregar(titulo, nota);
 }
 async function borrar(titulo) {
